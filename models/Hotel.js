@@ -10,22 +10,28 @@ const HotelSchema=new mongoose.Schema(
     
         },
 
+        Trip_Number:{
+            type:String,
+            required:true
+    
+        },
+
         Creater_Name:{
                      type:String,
-                     required:true
+                     default:"Not defined by trip creater"
 
              },
 
         Creater_Mobile_number:{
-                       type:Number,
-                        required:true
+                       type:String,
+                       default:"not defined by trip creater"
         
                      },
                        
                      
         Creater_Email:{
                        type:String,
-                       required:true
+                       default:"not@gmail.com"
                     
                      },
 
@@ -54,20 +60,20 @@ const HotelSchema=new mongoose.Schema(
       
 
         MaxPeople:{
-                    type:Number,
-                    required:true
+                    type:String,
+                   default:"0"
             
                 },
 
         AppxTripExpenses:{
                     type:Number,
-                
+                    default:0
             
                 },
 
          AdditionalDetails:{
-                    type:String
-                
+                    type:String,
+                    default:"Additional details are not Defined by Creater"
             
                 }
 
