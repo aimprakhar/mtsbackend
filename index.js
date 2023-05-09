@@ -15,7 +15,7 @@ dotenv.config();
 const connect = async () => {
   //   console.log(process.env.MONGO);
   try {
-    await mongoose.connect("mongodb+srv://aimprakhar:zM2nU@cluster10.pkcyb5d.mongodb.net/?retryWrites=true&w=majority");
+    await mongoose.connect(process.env.MONGO);
     console.log("connected to mongodb");
   } catch (error) {
     console.log("there is error");
