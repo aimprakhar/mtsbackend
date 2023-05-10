@@ -75,8 +75,12 @@ const HotelSchema=new mongoose.Schema(
                     type:String,
                     default:"Additional details are not Defined by Creater"
             
+                },
+                Mode:{
+                    type:String,
+                    default:"Not yet decided"
+            
                 }
-
 
 
 
