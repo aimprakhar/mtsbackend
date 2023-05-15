@@ -8,15 +8,15 @@ import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
 router.get("/:id", getRoom);
 //POST
 
-router.post("/:hotelid", verifyAdmin, createRoom);
+router.post("/", createRoom);
 
 //UPDATE
 
-router.put("/:id", verifyAdmin, updateRoom);
+router.put("/:id", updateRoom);
 
 //UPDATE
 
-router.delete("/:id/:hotelId", verifyAdmin, deleteRoom);
+router.delete("/:id/:hotelId", deleteRoom);
 
 //GET ALL
 

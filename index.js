@@ -5,17 +5,19 @@ import authRoute from "./routes/auth.js";
 import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
 import usersRoute from "./routes/users.js";
+import feedbacksRoute from "./routes/feedbacks.js";
 // import cookieParser from "cookie-parser";
 import cors from "cors";
 
 const app = express();
+const pt="mongodb+srv://aimprakhar:zM2nU@cluster10.pkcyb5d.mongodb.net/?retryWrites=true&w=majority";
 
 dotenv.config();
 
 const connect = async () => {
   //   console.log(process.env.MONGO);
   try {
-    await mongoose.connect(process.env.MONGO);
+    await mongoose.connect(process.env.MONGO||pt);
     console.log("connected to mongodb");
   } catch (error) {
     console.log("there is error");
@@ -34,6 +36,8 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
+app.use("/api/feedbacks", feedbacksRoute);
+
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
