@@ -9,6 +9,11 @@ const HotelSchema=new mongoose.Schema(
             default:"false"
     
         },
+        status:{
+            type:String,
+            default:"active"
+    
+        },
 
         Trip_Number:{
             type:String,
