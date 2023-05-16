@@ -25,12 +25,12 @@ router.post("/",createHotel);
 
 //UPDATE
 
- router.put("/:id",verifyAdmin,updateHotel);
+ router.put("/edit/:id",updateHotel);
 
 
 //UPDATE
 
-router.delete("/:id",verifyAdmin,deleteHotel);
+router.delete("/:id" ,deleteHotel);
 
 //GET ALL
 router.get("/countByCity",countByCity)

@@ -5,8 +5,8 @@ import mongoose from "mongoose";
 const HotelSchema=new mongoose.Schema(
     {
         verified:{
-            type:Boolean,
-            default:false
+            type:String,
+            default:"false"
     
         },
 
@@ -15,6 +15,12 @@ const HotelSchema=new mongoose.Schema(
             required:true
     
         },
+        Trip_Password:{
+            type:String,
+            required:true
+    
+        },
+
 
         Creater_Name:{
                      type:String,
