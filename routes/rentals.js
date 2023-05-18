@@ -9,8 +9,8 @@ router.get("/bbb",(req,res)=>{
 
 
 
-router.get("/find/:id",getRental);
-router.get("/find/",getRentals)
+// router.get("/find/:id",getRental);
+router.get("/find",getRentals)
 
 
 router.post("/",createRental);
