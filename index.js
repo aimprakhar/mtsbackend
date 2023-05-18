@@ -6,6 +6,7 @@ import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
 import usersRoute from "./routes/users.js";
 import feedbacksRoute from "./routes/feedbacks.js";
+import rentalsRoute from "./routes/rentals.js";
 // import cookieParser from "cookie-parser";
 import cors from "cors";
 
@@ -25,10 +26,7 @@ const connect = async () => {
   }
 };
 
-// mongoose.connection.on("disconnected",()=>{console.log("again disconnected with mongodb")})
-// mongoose.connection.on("connected",()=>{console.log("again connected with mongodb")})
 
-//middlewares
 app.use(cors());
 // app.use(cookieParser())
 app.use(express.json());
@@ -37,6 +35,7 @@ app.use("/api/users", usersRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 app.use("/api/feedbacks", feedbacksRoute);
+app.use("/api/rentals", rentalsRoute);
 
 
 app.use((err, req, res, next) => {
