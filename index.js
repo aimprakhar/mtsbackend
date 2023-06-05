@@ -7,8 +7,10 @@ import roomsRoute from "./routes/rooms.js";
 import usersRoute from "./routes/users.js";
 import feedbacksRoute from "./routes/feedbacks.js";
 import rentalsRoute from "./routes/rentals.js";
+import welcomeRouter from "./routes/welcome.js";
 // import cookieParser from "cookie-parser";
 import cors from "cors";
+
 
 const app = express();
 const pt="mongodb+srv://aimprakhar:zM2nU@cluster10.pkcyb5d.mongodb.net/?retryWrites=true&w=majority";
@@ -36,6 +38,7 @@ app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 app.use("/api/feedbacks", feedbacksRoute);
 app.use("/api/rentals", rentalsRoute);
+app.use('/api/welcome', welcomeRouter);
 
 
 app.use((err, req, res, next) => {
