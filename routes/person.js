@@ -1,5 +1,5 @@
 import express from "express";
-import { createPerson, deletePerson, getPerson,FilterPerson, getPersons, updatePerson } from "../controllers/person.js";
+import { createPerson, deletePerson, getPerson,FilterPerson, updatePerson } from "../controllers/person.js";
 const router =express.Router();
 
 
@@ -10,7 +10,7 @@ router.get("/bbb",(req,res)=>{
 
 
 // router.get("/find/:id",getPerson);
-router.get("/people",getPersons)
+router.get("/people",getPerson)
 
 
 router.post("/",createPerson);

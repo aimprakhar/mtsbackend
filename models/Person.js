@@ -18,4 +18,4 @@ const PersonSchema = new mongoose.Schema(
     }
 );
 
-export default mongoose.model("Person", PersonSchemaSchema)
+export default mongoose.model("Person", PersonSchema)

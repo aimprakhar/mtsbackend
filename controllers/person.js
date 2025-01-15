@@ -4,16 +4,29 @@ import Person from "../models/person.js";  // "change all instance of Person wit
 export const createPerson=async(req,res,next)=>{
     var keyId="<<<<<<<<<keyId>>>>>>>>>>>>>";
     const { name, qualities } = req.body;
+console.log(req.body)
 
+
+     const newPerson=new Person({ name, qualities })
+        try{
+              const savedfeedback=await newPerson.save()
+              res.status(200).json(savedfeedback)
+        }
+        catch(err){
+            next(err)
+            console.log(err)
+        }
+    // const people = await Person.findOne({ name: name });
+    // const person = await collection.findOne({ name: name });
     // Check if person already exists
-    const personExists = people.some(person => person.name.toLowerCase() === name.toLowerCase());
+    // const personExists = Person.some(person => person.name.toLowerCase() === name.toLowerCase());
     
-    if (personExists) {
-      return res.status(400).json({ message: 'Person already exists.' });
-    }
-  
-    people.push({ name, qualities });
-    res.status(201).json({ message: 'Person added successfully.' });
+    // if (personExists) {
+    //   return res.status(400).json({ message: 'Person already exists.' });
+    // }
+//   const SavedPeople=await {name, qualities}.save
+    //  Person.push({ name, qualities });
+    // res.status(201).json({ message: 'Person added successfully.'+{ name, qualities } });
 }
 
 
@@ -64,10 +77,12 @@ export const deletePerson=async(req,res,next)=>{
 
 
 export const getPerson=async(req,res,next)=>{
+    
     var keyId="<<<<<<<<<keyId>>>>>>>>>>>>>";
     try {
         const people = await Person.find();  // Fetch all people from MongoDB
         res.json(people);  // Return the list of people
+        console.log(res)
       } catch (err) {
         res.status(400).json({ message: 'Error fetching people', error: err });
       }
