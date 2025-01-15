@@ -4,15 +4,37 @@ import Person from "../models/person.js";  // "change all instance of Person wit
 export const createPerson=async(req,res,next)=>{
     var keyId="<<<<<<<<<keyId>>>>>>>>>>>>>";
     const { name, qualities } = req.body;
-  
-    try {
-      const person = new Person({ name, qualities });
-      await person.save();  // Save person to MongoDB
-      res.status(201).json(person);  // Respond with the saved person
-    } catch (err) {
-      res.status(400).json({ message: 'Error adding person', error: err });
+
+    // Check if person already exists
+    const personExists = people.some(person => person.name.toLowerCase() === name.toLowerCase());
+    
+    if (personExists) {
+      return res.status(400).json({ message: 'Person already exists.' });
     }
+  
+    people.push({ name, qualities });
+    res.status(201).json({ message: 'Person added successfully.' });
 }
+
+
+
+export const FilterPerson=async(req,res,next)=>{
+    var keyId="<<<<<<<<<keyId>>>>>>>>>>>>>";
+    const { filters } = req.body;
+    const filteredPeople = people.filter(person => {
+      return filters.every(filter => {
+        const { key, value } = filter;
+        if (!key || !value) return true;
+        return person.qualities[key]?.toLowerCase() === value.toLowerCase();
+      });
+    });
+  
+    res.json(filteredPeople);
+}
+
+
+
+
 
 
 export const updatePerson=async(req,res,next)=>{
