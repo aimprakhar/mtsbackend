@@ -1,5 +1,5 @@
-import Person from "../models/person.js";  // "change all instance of Person with your schema throughout page"
-
+// import Person from "../models/Person.js";  // "change all instance of Person with your schema throughout page"
+import Person from "../models/Person.js"
 
 export const createPerson=async(req,res,next)=>{
     var keyId="<<<<<<<<<keyId>>>>>>>>>>>>>";
